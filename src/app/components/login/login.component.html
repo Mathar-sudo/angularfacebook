@@ -1,14 +1,20 @@
 <div class="container">
     <div class="row mb-2">
         <div class="col-md-4">
+            <h1 class="facebook">facebook</h1>
+            <h2>Connexions récentes</h2>
+            <h4>Cliquez sur votre image ou sur Ajouter un compte</h4>
             <img src="/assets/Mona_Lisa-restored.jpg" alt="">
         </div>
-        <div class="col-md-4">
-            <form>
-                <input class="form-control form-control-md" type="email" placeholder="Email">
-                <input class="form-control" type="password" placeholder="Mot de passe">
-                <button type="submit" class="btn btn-primary">Connexion</button>
+        <div class="col-md-4 ">
+            <form #form ="ngForm" (ngSubmit)="login(form)">
+                <input class="form-control form-control-md blue space" type="email" ngModel placeholder="Email">
+                <input class="form-control blue space" type="password" ngModel placeholder="Mot de passe">
+                <button type="submit" [disabled]="form.invalid || form.pending" class="btn btn-primary md-4 space">Connexion</button>
             </form>
+            <a class="mdp">Mot de passe oublié ?</a>
+            <hr/>
+            <button routerLink="register" type="submit" class="btn btn-success">Créer un compte</button>
         </div>
     </div>
 </div>
